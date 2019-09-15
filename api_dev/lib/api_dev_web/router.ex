@@ -31,9 +31,16 @@ defmodule ApiDevWeb.Router do
     get "/users/:id", UserController, :show
     put "users/:id", UserController, :update
     delete "users/:id", UserController, :delete
+    # get "/users?email=XXX&username=YYY", UserController, :show
 
-    post "/workingTime/", WorkingtimeController, :create
-    get "/workingTime/:id", WorkingtimeController, :show
+    # resources "/workingTime", WorkingtimeController, except: [:new, :edit]
+
+    post "/workingtimes", WorkingtimeController, :create
+    get "/workingtimes/:id", WorkingtimeController, :show
+
+    # resources "/clocks", ClockController, except: [:new, :edit]
+    post "/clocks", ClockController, :create
+    get "/clocks/:id", ClockController, :show
 
     # post "/users", UserController, :create
     # get "/users/:userID", UserController, :index
@@ -48,15 +55,15 @@ defmodule ApiDevWeb.Router do
     #   # delete "/:userID", UserController, :delete
     # end
 
-    scope "/workingTime", ApiDevWeb do
+    # scope "/workingTime", ApiDevWeb do
     
-      get "/:userID/?start=XXX&end=YYY", WorkingtimeController, :index
-      get "/:userID/:workingtimeID", WorkingtimeController, :show
-      post "/:userID", WorkingtimeController, :create
-      put "/:id", WorkingtimeController, :update
-      delete "/:id", WorkingtimeController, :delete
-      
-    end
+    #   get "/:userID/?start=XXX&end=YYY", WorkingtimeController, :index
+    #   get "/:userID/:workingtimeID", WorkingtimeController, :show
+    #   post "/:userID", WorkingtimeController, :create
+    #   put "/:id", WorkingtimeController, :update
+    #   delete "/:id", WorkingtimeController, :delete
+
+    # end
 
     # scope "/clocks", ApiDevWeb do
 

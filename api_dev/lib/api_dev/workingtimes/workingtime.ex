@@ -5,7 +5,7 @@ defmodule ApiDev.Workingtimes.Workingtime do
   schema "workingtimes" do
     field :end, :date
     field :start, :date
-    field :user_id, :id
+    belongs_to(:user, ApiDev.Users.User)
 
     timestamps()
   end

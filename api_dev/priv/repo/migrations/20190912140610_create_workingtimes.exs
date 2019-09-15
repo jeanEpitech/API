@@ -3,9 +3,9 @@ defmodule ApiDev.Repo.Migrations.CreateWorkingtimes do
 
   def change do
     create table(:workingtimes) do
-      add :start, :date, null: false
-      add :end, :date, null: false
-      add :user_id, references(:users, on_delete: :nothing), null: false
+      add :start, :naive_datetime
+      add :end, :naive_datetime
+      add :user_id, references(:users, on_delete: :nothing)
 
       timestamps()
     end

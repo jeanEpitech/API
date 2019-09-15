@@ -12,6 +12,7 @@ defmodule ApiDevWeb.WorkingtimeController do
   end
 
   def create(conn, %{"workingtime" => workingtime_params}) do
+    IO.inspect(workingtime_params)
     with {:ok, %Workingtime{} = workingtime} <- Workingtimes.create_workingtime(workingtime_params) do
       conn
       |> put_status(:created)
